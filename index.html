@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Navbar</title>
+<style>
+  /* Basic reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  /* Navbar styling */
+  .navbar {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #E74C3C;
+    text-align:left;
+    flex-grow: 1;
+  }
+
+  .navbar-menu {
+    display: flex;
+    gap: 15px;
+  }
+
+  .navbar-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .navbar-menu a:hover {
+    background-color: #E74C3C;
+    color: #ffffff;
+  }
+
+  /* Hamburger menu icon */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: #E74C3C;
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Responsive menu */
+  @media (max-width: 768px) {
+    .navbar-menu {
+      display: none; /* Hide menu items on mobile */
+      flex-direction: column;
+      background-color: #070809;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .navbar-menu.show {
+      display: flex; /* Show menu when toggled */
+    }
+
+    .hamburger {
+      display: flex; /* Show hamburger icon on mobile */
+    }
+  }
+
+  /* Optional animation for the hamburger icon */
+  .hamburger.open div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.open div:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar Structure -->
+<nav class="navbar">
+  <div class="navbar-logo">Yousre Ramadan</div>
+  <div class="navbar-menu" id="navbarMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
+<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore provident asperiores quis, numquam dolores repudiandae, maxime eos error at natus et sapiente ullam. Architecto quae quas tempora, mollitia eos exercitationem?</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, doloremque! Enim obcaecati nesciunt commodi quod! Et culpa, vitae impedit quo magni ad velit odit placeat, corporis laborum veniam sint veritatis.</p>
+
+<!-- JavaScript to toggle the menu and animate the hamburger icon -->
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("navbarMenu");
+    const hamburger = document.getElementById("hamburger");
+    menu.classList.toggle("show");
+    hamburger.classList.toggle("open");
+  }
+</script>
+
+</body>
+</html>
